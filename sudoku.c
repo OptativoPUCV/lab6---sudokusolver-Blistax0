@@ -62,7 +62,6 @@ int is_valid(Node* n){
          }
       }
    }
-   int k = 0;
    for (int i = 0; i < 9; i += 3){
       for (int j = 0; j < 9; j += 3){
          int* box = (int*) calloc (10, sizeof(int));
