@@ -63,8 +63,6 @@ int is_valid(Node* n){
       for (int j = 0; j < 9; j++){
          int num = n->sudo[i][j];
          if (num != 0){
-            int box_row = (i / 3) * 3 + (num - 1) / 3;
-            int box_col = (j / 3) * 3 + (num - 1) % 3;
             if (box[num] == 1){
                return 0;
             }
