@@ -153,3 +153,17 @@ Thu 16 May 2024 09:56:50 PM UTC:
  tests:  3|3
 total_score: 25/70
 3ffb858
+Thu 16 May 2024 09:59:49 PM UTC: 
+ sudoku.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:67:17: error: unused variable ‘box_col’ [-Werror=unused-variable]
+   67 |             int box_col = (j / 3) * 3 + (num - 1) % 3;
+      |                 ^~~~~~~
+sudoku.c:66:17: error: unused variable ‘box_row’ [-Werror=unused-variable]
+   66 |             int box_row = (i / 3) * 3 + (num - 1) / 3;
+      |                 ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+8252efb
