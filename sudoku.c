@@ -62,17 +62,17 @@ int is_valid(Node* n){
          }
       }
    }
-   for (int i = 0; i < 9; i += 3){
-      for (int j = 0; j < 9; j += 3){
-         int* box = (int*) calloc (10, sizeof(int));
-         for (int x = 0; x < 3; x++){
-            for (int y = 0; y < 3; y++){
-               if (n->sudo[i + x][j + y] != 0)
-                  return 0;
-               if (box[n->sudo[i + x][j + y]] == 1){
+   int k = 0;
+   while (k < 9){
+      int* box = (int*) calloc (10, sizeof(int));
+      for (int i = 0; i < 3; i++){
+         for (int j = 0; j < 3; j++){
+            int num = n->sudo[i + (k / 3) * 3][j + (k % 3) * 3];
+            if (num != 0){
+               if (box[num] == 1){
                   return 0;
                }
-               box[n->sudo[i + x][j + y]] = 1;
+               box[num] = 1;
             }
          }
       }
