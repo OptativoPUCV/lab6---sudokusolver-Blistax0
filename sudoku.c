@@ -58,18 +58,7 @@ int is_valid(Node* n){
          }
       }
    }
-   for (int i = 0; i < 9; i++){
-      int* box = (int*) calloc (10, sizeof(int));
-      for (int j = 0; j < 9; j++){
-         int num = n->sudo[i][j];
-         if (num != 0){
-            if (box[num] == 1){
-               return 0;
-            }
-            box[num] = 1;
-         }
-      }
-   }
+
    return 1;
 }
 
