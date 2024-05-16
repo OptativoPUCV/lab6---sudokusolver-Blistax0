@@ -44,11 +44,10 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   int* col = (int*) calloc (10, sizeof(int));
-   int* row = (int*) calloc (10, sizeof(int));
-   int* box = (int*) calloc (10, sizeof(int));
    for (int i = 0; i < 9; i++){
-      
+      int* col = (int*) calloc (10, sizeof(int));
+      int* row = (int*) calloc (10, sizeof(int));
+      int* box = (int*) calloc (10, sizeof(int));
       for (int j = 0; j < 9; j++){
          int num = n->sudo[i][j];
          if (num != 0){
