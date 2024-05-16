@@ -57,8 +57,12 @@ int is_valid(Node* n){
             row[num] = 1;
          }
       }
+      for (int k = 1; k < 10; k++){
+         if (col[k] == 0 || row[k] == 0){
+            return 0;
+         }
+      }
    }
-
    return 1;
 }
 
