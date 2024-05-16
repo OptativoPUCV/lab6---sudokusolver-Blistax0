@@ -45,9 +45,9 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
    for (int i = 0; i < 9; i++){
-      int* col = (int*) malloc (sizeof(int));
-      int* row = (int*) malloc (sizeof(int));
-      int* box = (int*) malloc (sizeof(int));
+      int* col = (int*) calloc (10, sizeof(int));
+      int* row = (int*) calloc (10, sizeof(int));
+      int* box = (int*) calloc (10, sizeof(int));
       for (int j = 0; j < 9; j++){
          int num = n->sudo[i][j];
          if (num != 0){
@@ -69,10 +69,10 @@ List* get_adj_nodes(Node* n){
    for (int i = 0; i < 9; i++){
       for (int j = 0; j < 9; j++){
          if (n->sudo[i][j] == 0){
-            int k = 0;
-            while (k != 9){
+            int k = 1;
+            while (k != 10){
                Node* adj = copy(n);
-               adj->sudo[i][j] = 1;
+               adj->sudo[i][j] = k;
                if (is_valid(adj)){
                   pushBack(list, adj);
                }
