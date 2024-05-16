@@ -44,7 +44,18 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   return 1;
+   for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+         if (n->sudo[i][j] == 0)
+            continue;
+         for (int k = 0; k < 9; k++){
+            if (k == j) 
+               continue;
+            if (n->sudo[i][k] == n->sudo[i][j])
+               return 0;
+         }
+      }
+   }
 }
 
 List* get_adj_nodes(Node* n){
