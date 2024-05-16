@@ -8,14 +8,14 @@ typedef struct{
 }Node;
 
 Node* createNode(){
-  Node* n=(Node*) malloc(sizeof(Node));
-  return n;
+   Node* n=(Node*) malloc(sizeof(Node));
+   return n;
 }
 
 Node* copy(Node* n){
-    Node* new=(Node*) malloc(sizeof(Node));
-    *new = *n;
-    return new;
+   Node* new=(Node*) malloc(sizeof(Node));
+   *new = *n;
+   return new;
 }
 
 Node* read_file (char* file_name){
@@ -44,14 +44,27 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+   
 
-    return 1;
+   
+   return 1;
 }
 
 
 List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+   List* list=createList();
+
+   for (int i = 0; i < 9; i++){
+      for (int j = 0; j < 9; j++){
+         if (n->sudo[i][j] == 0){
+            Node* adj = copy(n);
+            adj->sudo[i][j] = 1;
+            pushBack(list, adj);
+         }  
+      }
+   }
+   
+   return list;
 }
 
 
