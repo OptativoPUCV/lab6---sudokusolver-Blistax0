@@ -8,3 +8,23 @@ Thu 16 May 2024 09:19:35 PM UTC:
  tests:  0|5
 total_score: 0/70
 0bafe1a
+Thu 16 May 2024 09:23:27 PM UTC: 
+ sudoku.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:61:20: error: expected expression before ‘int’
+   61 |             while (int k != 9){
+      |                    ^~~
+sudoku.c:65:16: error: ‘k’ undeclared (first use in this function)
+   65 |                k++
+      |                ^
+sudoku.c:65:16: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:65:19: error: expected ‘;’ before ‘}’ token
+   65 |                k++
+      |                   ^
+      |                   ;
+   66 |             }
+      |             ~      
+Compilation failed
+f42f87f
