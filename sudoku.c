@@ -48,18 +48,33 @@ int is_valid(Node* n){
       int* col = (int*) calloc (10, sizeof(int));
       int* row = (int*) calloc (10, sizeof(int));
       for (int j = 0; j < 9; j++){
-         int num = n->sudo[i][j];
-         if (num != 0){
-            if (col[num] == 1 || row[num] == 1){
+         if (n->sudo[i][j] != 0){
+            if (col[n->sudo[i][j]] == 1){
                return 0;
             }
-            col[num] = 1;
-            row[num] = 1;
+            col[n->sudo[i][j]] = 1;
+         }
+         if (n->sudo[j][i] != 0){
+            if (row[n->sudo[j][i]] == 1){
+               return 0;
+            }
+            row[n->sudo[j][i]] = 1;
          }
       }
-      for (int k = 1; k < 10; k++){
-         if (col[k] == 0 || row[k] == 0){
-            return 0;
+   }
+   int k = 0;
+   for (int i = 0; i < 9; i += 3){
+      for (int j = 0; j < 9; j += 3){
+         int* box = (int*) calloc (10, sizeof(int));
+         for (int x = 0; x < 3; x++){
+            for (int y = 0; y < 3; y++){
+               if (n->sudo[i + x][j + y] != 0)
+                  return 0;
+               if (box[n->sudo[i + x][j + y]] == 1){
+                  return 0;
+               }
+               box[n->sudo[i + x][j + y]] = 1;
+            }
          }
       }
    }
@@ -99,6 +114,7 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+   
   return NULL;
 }
 
