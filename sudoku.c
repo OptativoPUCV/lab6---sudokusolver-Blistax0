@@ -45,9 +45,9 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
    for (int i = 0; i < 9; i++){
-      int* col = (int*) calloc (8, sizeof(int));
-      int* row = (int*) calloc (8, sizeof(int));
-      int* box = (int*) calloc (8, sizeof(int));
+      int* col = (int*) malloc (sizeof(int));
+      int* row = (int*) malloc (sizeof(int));
+      int* box = (int*) malloc (sizeof(int));
       for (int j = 0; j < 9; j++){
          int num = n->sudo[i][j];
          if (num != 0){
