@@ -59,6 +59,9 @@ int is_valid(Node* n){
             box[num] = 1;
          }
       }
+      free(col);
+      free(row);
+      free(box);
    }
    return 1;
 }
